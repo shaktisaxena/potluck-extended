@@ -40,4 +40,8 @@ public class PotLuckService {
         _potLuckDao.findByName(potLuckDto.getName()).orElseThrow(ResourceNotFoundException::new);
         _potLuckDao.update(mapper.map(potLuckDto, PotLuck.class));
     }
+
+    public void deletePotLuck(String id) {
+        _potLuckDao.delete(_potLuckDao.findById(id).orElseThrow(ResourceNotFoundException::new));
+    }
 }

@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.Optional;
 
 @Scope(scopeName = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public interface PotLuckMongoRepository extends MongoRepository<PotLuck,Integer> {
+public interface PotLuckMongoRepository extends MongoRepository<PotLuck,String> {
     @Query("{ 'name': ?0 }")
     Optional<PotLuck> findByName(final String name);
 }

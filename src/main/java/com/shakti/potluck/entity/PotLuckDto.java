@@ -15,6 +15,7 @@ import java.time.LocalDate;
 @Setter
 public class PotLuckDto {
 
+    private String potLuckId;
     /**
      * Name of the potluck
      * Examples: Silvester Party, diwali

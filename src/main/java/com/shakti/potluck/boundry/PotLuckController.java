@@ -34,4 +34,10 @@ public class PotLuckController {
         _potLuckService.updatePotLuck(potLuckDto);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @PutMapping("/potluck/{id}")
+    public ResponseEntity deletePotLuck(@PathVariable("id") String id) {
+        _potLuckService.deletePotLuck(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

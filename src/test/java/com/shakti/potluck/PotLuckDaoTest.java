@@ -12,7 +12,6 @@ import java.time.LocalDate;
 
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
 public class PotLuckDaoTest {
 
     @MockBean
@@ -35,12 +34,8 @@ public class PotLuckDaoTest {
 
         //act
         _sut.save(potLuck);
-
         //assert
         verify(mongoRepository,times(1)).save(potLuck);
-
-
-
 
     }
 }
