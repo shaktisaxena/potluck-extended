@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
@@ -14,6 +15,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class PotLuckDto {
+
+    private String id;
 
     private String potLuckId;
     /**
@@ -37,7 +40,7 @@ public class PotLuckDto {
      * date planned for the potluck. Date must be in future.
      * Example : dd/mm/yyyy
      */
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @NotNull(message = "The planned date is required.")
@@ -50,4 +53,25 @@ public class PotLuckDto {
     @NotNull(message = "The food-items are required.")
     @NotEmpty(message = "The food types must have at least 2 item.")
     private String[] foodItems;
+
+    /**
+     * food items planned
+     */
+    private Address address;
+
+    /**
+     * lists of guests to be invited
+     */
+    @UniqueElements
+    private String[] guests;
+
+
+    /**
+     * name of admin
+     */
+    @NotNull(message = "Organizer of the event is required.")
+    @NotEmpty(message = "Org cannot be emty.")
+    private String userEmail;
+
+
 }

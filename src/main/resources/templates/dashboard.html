@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+            <h2>This is your Admin Dashboard</h2>
+        </div>
+
+
+        <div th:if="${ not#lists.isEmpty(listPotlucks)}">
+            <table>
+                <tr>
+                    <th>PotLuck Name</th>
+                    <th>Planned Date</th>
+                </tr>
+                <tr th:each="potLuck : ${listPotlucks}">
+                    <td th:text="${potLuck.name}"></td>
+                    <td th:text="${potLuck.plannedDate}"></td>
+                </tr>
+                </table>
+        </div>
+    </body>
+</html>

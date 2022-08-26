@@ -10,4 +10,6 @@ public class PotluckApplication {
 		SpringApplication.run(PotluckApplication.class, args);
 	}
 
+
+
 }

@@ -5,7 +5,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -46,4 +49,16 @@ public class PotLuck {
      */
 
     private String[] foodItems;
+
+    /**
+     * name of admin
+     */
+    private String userEmail;
+
+    /**
+     * location where potluck would take place
+     */
+    private Address address;
+
+    private String[] guests;
 }

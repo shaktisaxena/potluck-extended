@@ -35,7 +35,6 @@ class PotLuckDaoTest {
         newPotluck.setFamilyCount(2);
         newPotluck.setPlannedDate( LocalDate.of(2021,12,10));
         newPotluck.setFoodItems(new String[]{"chole"});
-        newPotluck.setId("1000");
 
         when(_repository.save(newPotluck)).thenReturn(newPotluck);
 
@@ -55,7 +54,6 @@ class PotLuckDaoTest {
         newPotluck.setFamilyCount(2);
         newPotluck.setPlannedDate( LocalDate.of(2021,12,10));
         newPotluck.setFoodItems(new String[]{"chole"});
-        newPotluck.setId("1000");
 
         when(_repository.save(newPotluck)).thenReturn(newPotluck);
 
@@ -75,7 +73,6 @@ class PotLuckDaoTest {
         potLuck.setFamilyCount(2);
         potLuck.setPlannedDate( LocalDate.of(2021,12,10));
         potLuck.setFoodItems(new String[]{"chole"});
-        potLuck.setId("1000");
 
         //act
         _sut.delete(potLuck);
@@ -92,7 +89,6 @@ class PotLuckDaoTest {
         potLuck.setFamilyCount(2);
         potLuck.setPlannedDate( LocalDate.of(2021,12,10));
         potLuck.setFoodItems(new String[]{"chole"});
-        potLuck.setId("1000");
 
         when(_repository.findByName("test")).thenReturn(Optional.of(potLuck));
 
@@ -115,7 +111,6 @@ class PotLuckDaoTest {
         potLuck.setFamilyCount(2);
         potLuck.setPlannedDate( LocalDate.of(2021,12,10));
         potLuck.setFoodItems(new String[]{"chole"});
-        potLuck.setId("1000");
 
         when(_repository.findById("1000")).thenReturn(Optional.of(potLuck));
 
